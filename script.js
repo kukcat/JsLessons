@@ -55,11 +55,18 @@ function forNumber(){
 
 }
 
+//           git clone https://github.com/kukcat/JsLessons
+
 //============================================ lesson 2
 
-let isBlock = false
+let isBlock = false;
 let blockTop = 0;
+let blockLeft = 0;
 let size;
+
+let btnDown = document.querySelector('.down')
+
+btnDown.addEventListener('click', blockDown)
 
 function addBlock(){
 
@@ -85,29 +92,31 @@ function addBlock(){
 function blockDown(){
 
     let block = document.querySelector('.block')
-    
-    if(size + blockTop + 10 > 500) return
-    
+    if(size + blockTop + 10 > 500) return   
     blockTop += 10
-
     block.style.marginTop = blockTop + 'px'
 }
 
 function blockUp(){
 
     let block = document.querySelector('.block')
-    
     if(blockTop <= 0) return
-    
     blockTop -= 10
-
     block.style.marginTop = blockTop + 'px'
 
 }
 
+function blockRight(){
+    let block = document.querySelector('.block')
+    if(size + blockLeft + 10 > 500) return   
+    blockLeft += 10
+    block.style.marginLeft = blockLeft + 'px'
+}
 
-// function addError(){
-//     let i = addBlock()
-//     let errorBlock = document.querySelector('.error')
-//     errorBlock.innerHTML = 'Вы указали неверные размеры:' + i
-// }
+function BlockLeft(){
+    let block = document.querySelector('.block')
+    if(blockLeft <= 0) return   
+    blockLeft -= 10
+    block.style.marginLeft = blockLeft + 'px'
+}
+
